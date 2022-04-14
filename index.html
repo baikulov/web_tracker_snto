@@ -37,7 +37,18 @@
             eventCategory:"Tracking",
             eventAction: "Non-Interactions"
         });
+  <script>
+window.onload = async function () {
+  const endpoint =
+    "https://us-central1-r-studio-280613.cloudfunctions.net/function-1";
+  const res = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Access-Control-Allow-Origin": "https://baikulov.github.io","Content-Type":"application/json",body:  JSON.stringify({ event: "event", eventCategory: "Tracking" })},
+  }).then((res) => res.json());
 
+  console.log("res:", res);
+};
+</script>
     </script>
   </body>
 </html>
